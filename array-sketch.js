@@ -11,9 +11,10 @@ setup = function() {
 
 draw = function () {
   background(100);
+  ballpit: forEach(updateAndDisplay);
   //iterateFunctionally(ballpit);
   //iterateWithWhileLoop(ballpit);
-  iterateWithForLoop(ballpit);
+  //iterateWithForLoop(ballpit);
   if (mouseIsPressed) ballpit.push(new Ball(mouseX, mouseY));
 };
 
@@ -24,13 +25,19 @@ var iterateFunctionally = function (array) {
 var iterateWithWhileLoop = function (array) {
   var index = 0;
   while (index < array.length) {
-    updateAndDisplay(array[index]);
+    ballpit[index].update();
+    ballpit[index].display();
+    //updateAndDisplay(array[index]);
+    //updateAndDisplay is a shorter code for the two lines of code above it
     ++index;
   }
 };
 
 var iterateWithForLoop = function (array) {
   for (var i = 0; i < array.length; ++i) {
-    updateAndDisplay(array[i]);
+    ballpit[i].update();
+    ballpit[i].display();
+    //updateAndDisplay(array[i]);
+    //see whileLoop note for above line of code
   }
 };
